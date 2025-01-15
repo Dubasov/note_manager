@@ -1,3 +1,18 @@
+<table border="3">
+  <tr align="center"><td colspan="2"><a href="https://github.com/Dubasov/note_manager/tree/master/ЭТАП%204"><b>ЗАВЕРШЕНИЕ ЭТАПА 4</b></a></td></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/permission-err.yaml">permission-err.yaml</a></th><th>Файл с запретом чтения (для Обработка_Ошибок)</th></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/scaner-err.yaml">scaner-err.yaml</a></th><th>Повреждённый файл (для Обработка_Ошибок)</th></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/Этап4_JSON_Формат_Дубасов_Владислав.py">JSON_Формат</a></th><th>Перезапись файла JSON</th></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/Этап4_Добавление_Данных_Дубасов_Владислав.py">Добавление_Данных</a></th><th>Дозапись в файл
+    YAML</th></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/Этап4_Загрузка_Заметок_Дубасов_Владислав.py">Загрузка_Заметок</a></th><th>Загрузка данных из файла YAML</th></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/Этап4_Обработка_Ошибок_Дубасов_Владислав.py">Обработка_Ошибок</a></th><th>Обработка ошибок при чтении файлов YAML</th></tr>
+  <tr align="left"><th><a href="https://github.com/Dubasov/note_manager/blob/master/ЭТАП%204/Этап4_Сохранение_Заметок_Дубасов_Владислав.py">Сохранение_Заметок</a></th><th>Перезапись файла YAML</th></tr>
+
+
+
+</table>
+</br>
 </br><b>______________________________________________________________________________ЭТАП 3</b>
 </br><b><i>create_note_function.py</i> (ПРОЕКТ 1. ЭТАП 3. ЗАДАНИЕ 1)</b>
 </br>Функция добавления заметки (для каждого поля реализована отдельная функция)
