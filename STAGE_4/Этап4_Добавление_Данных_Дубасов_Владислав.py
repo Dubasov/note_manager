@@ -21,5 +21,5 @@ append_notes_to_file(notes_lst, 'yamldata-append')
 with open('yamldata-append.yaml', 'r', encoding='utf-8') as file:
     load = yaml.safe_load(file)
 
-print(f'Тип данных: {type(load)}')
+
 print(f'Содержимое: {load}')

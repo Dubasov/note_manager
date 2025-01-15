@@ -20,5 +20,5 @@ save_notes_json(notes_lst,'jsondata')
 with open('jsondata.json', 'r', encoding='utf-8') as file:
     load = json.load(file)
 
-print(f'Тип данных: {type(load)}')
+
 print(f'Содержимое: {load}')

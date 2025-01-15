@@ -1,11 +1,10 @@
 if __name__ == '__main__':
     # GRADE 1. ЭТАП 3. Задание 5.
 
-    import datetime
-    from create_note_function import *
-    from display_notes_function import *
-    from update_note_function import *
-    from search_notes_function import *
+    from STAGE_3.create_note_function import *
+    from STAGE_3.display_notes_function import *
+    from STAGE_3.update_note_function import *
+    from STAGE_3.search_notes_function import *
     from colorama import init, Fore  # Библиотека для раскрашивания консоли
 
     init(autoreset=True)  # Авто сброс покраски строчек

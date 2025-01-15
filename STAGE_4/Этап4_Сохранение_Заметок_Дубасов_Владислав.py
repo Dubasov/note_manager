@@ -22,5 +22,4 @@ save_notes_to_file(notes_lst, 'yamldata')
 with open('yamldata.yaml', 'r', encoding='utf-8') as file:
     load = yaml.safe_load(file)
 
-print(f'Тип данных: {type(load)}')
 print(f'Содержимое: {load}')
