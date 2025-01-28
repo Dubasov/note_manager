@@ -13,8 +13,8 @@ def create_id( add_note_dict):
 
 def create_name(add_note_dict):
     while True:
-        add_note_dict['Имя пользователя'] = input(MESSAGE_NAME_INP)  # получение имени
-        if validate_input(add_note_dict['Имя пользователя']):  # проверка ввода
+        add_note_dict['username'] = input(MESSAGE_NAME_INP)  # получение имени
+        if validate_input(add_note_dict['username']):  # проверка ввода
             return add_note_dict
         else:
             print(MESSAGE_ERR_NAME)
@@ -30,24 +30,24 @@ def create_tittles(add_note_dict):
         title = input(f'{MESSAGE_TIT_INP} {title_ticker}: ')  # получение заголовков
 
         if validate_input(title):  # проверка ввода
-            if title.lower() in (item.lower() for item in add_note_dict['Темы']):  # Поиск совпадений
+            if title.lower() in (item.lower() for item in add_note_dict['title']):  # Поиск совпадений
                 print(MESSAGE_ERR_TIT_UNIQ)  # найдено совпадение (повтор)
                 continue
             else:
-                add_note_dict['Темы'].append(title)  # заголовки уникальны (добавление в список)
+                add_note_dict['title'].append(title)  # заголовки уникальны (добавление в список)
                 title_ticker = title_ticker + 1
         elif title.isspace():  # Если только пробел\ы
             print(MESSAGE_ERR_TIT_SPACE)  # ошибка темы (только пробелы)
             continue
-        elif title == '' and len(add_note_dict['Темы']) > 0:  # завершение ввода
+        elif title == '' and len(add_note_dict['title']) > 0:  # завершение ввода
             return add_note_dict
         else:
             print(MESSAGE_ERR_TIT_EMPTY)  # ошибка пустого списка
 
 def create_description(add_note_dict):
     while True:
-        add_note_dict['Описание'] = input(MESSAGE_DESCR_INP)
-        if validate_input(add_note_dict['Описание']):
+        add_note_dict['content'] = input(MESSAGE_DESCR_INP)
+        if validate_input(add_note_dict['content']):
             return add_note_dict
         else:
             print(MESSAGE_ERR_DESCR_EMPTY)
@@ -58,15 +58,15 @@ def create_status(add_note_dict):
         print(MESSAGE_CR_STATUS)
         status_command = input(MESSAGE_COMMAND_INP)  # пользовательский ввод
         if status_command == '1':
-            add_note_dict['Статус'] = 'Активна'  # добавление статуса "Активна"
+            add_note_dict['status'] = 'Активна'  # добавление статуса "Активна"
             if validate_status(add_note_dict):
                 return add_note_dict
         elif status_command == '2':  # добавление статуса "Отложена"
-            add_note_dict['Статус'] = 'Отложена'
+            add_note_dict['status'] = 'Отложена'
             if validate_status(add_note_dict):
                 return add_note_dict
         elif status_command == '3':  # добавление статуса "Выполнена"
-            add_note_dict['Статус'] = 'Выполнена'
+            add_note_dict['status'] = 'Выполнена'
             if validate_status(add_note_dict):
                 return add_note_dict
         else:
@@ -74,14 +74,14 @@ def create_status(add_note_dict):
             continue
 
 def create_now_date(add_note_dict):
-    add_note_dict['Создана'] = datetime.strftime(datetime.now(), "%d-%m-%Y")  # текущая дата
+    add_note_dict['created_date'] = datetime.strftime(datetime.now(), "%d-%m-%Y")  # текущая дата
     return add_note_dict
 
 def create_issue_date(add_note_dict):
     while True:
         date_input = input(MESSAGE_DATE_INP)
         if validate_date(date_input):
-            add_note_dict['Дата завершения'] = validate_date(date_input)
+            add_note_dict['issue_date'] = validate_date(date_input)
             return add_note_dict
         else:
             print(MESSAGE_ERR_DATE_FORMAT)
@@ -90,12 +90,12 @@ def create_issue_date(add_note_dict):
 # ФУНКЦИЯ СОЗДАНИЯ
 def create_note():
     add_note_dict =     {'ID': '',
-                        'Имя пользователя': '',
-                        'Темы': [],
-                        'Описание': '',
-                        'Статус': '',
-                        'Создана': '',
-                        'Дата завершения': ''}  # Объявление словаря внутри функции
+                        'username': '',
+                        'title': [],
+                        'content': '',
+                        'status': '',
+                        'created_date': '',
+                        'issue_date': ''}  # Объявление словаря внутри функции
 
     print(MESSAGE_CR_NOTE)
     create_id(add_note_dict)
@@ -141,7 +141,7 @@ def update_note(notes_lst):
             break
         # ______КОМАНДА 2_________Изменение тем
         elif key_changer == '2':
-            add_note_dict['Темы'] = []
+            add_note_dict['title'] = []
             create_tittles(add_note_dict)
             break
         # ______КОМАНДА 3_________Изменение описания
@@ -159,7 +159,7 @@ def update_note(notes_lst):
         # ______КОМАНДА 6_________Изменение всех полей
         elif key_changer == '6':
             create_name(add_note_dict)
-            add_note_dict['Темы'] = []
+            add_note_dict['title'] = []
             create_tittles(add_note_dict)
             create_description(add_note_dict)
             create_status(add_note_dict)
@@ -267,19 +267,19 @@ def write_json(notes, json_file):
 
 
 if '__main__' == __name__:
-    notes_lst = [{'Имя пользователя': 'Влад',
-                  'Темы': ['Тестовый заголовок 1 в заметке Влада', 'Тестовый заголовок 2 в заметке Влада'],
-                  'Описание': 'Тестовое описание-1 в заметке влада',
-                  'Статус': 'Отложена',
-                  'Создана': '15-12-2024',
-                  'Дата завершения': '15-12-2024'
+    notes_lst = [{'username': 'Влад',
+                  'title': ['Тестовый заголовок 1 в заметке Влада', 'Тестовый заголовок 2 в заметке Влада'],
+                  'content': 'Тестовое описание-1 в заметке влада',
+                  'status': 'Отложена',
+                  'created_date': '15-12-2024',
+                  'issue_date': '15-12-2024'
                   },
-                 {'Имя пользователя': 'Елена',
-                  'Темы': ['Тестовый заголовок 1 в заметке Елены'],
-                  'Описание': 'Тестовое описание-2 в заметке Елены',
-                  'Статус': 'Выполнена',
-                  'Создана': '15-12-2024',
-                  'Дата завершения': '10-01-2025'
+                 {'username': 'Елена',
+                  'title': ['Тестовый заголовок 1 в заметке Елены'],
+                  'content': 'Тестовое описание-2 в заметке Елены',
+                  'status': 'Выполнена',
+                  'created_date': '15-12-2024',
+                  'issue_date': '10-01-2025'
                   }
                  ]
 

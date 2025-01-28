@@ -16,10 +16,9 @@ while True:
     # ____КОМАНДА 2______Показать список заметок
     elif command_menu == '2':
         searched_notes = []
-        for iteration, note in enumerate(load_notes_from_db('nt_mngr_dtbs.db')):
-            note_id = iteration + 1
-            searched_notes.append(note_id)
-            notes_display(note, note_id)
+        for iteration, note in enumerate(load_notes_from_db('nt_mngr_dtbs.db'), start = 1):
+            searched_notes.append(iteration)
+            notes_display(note, iteration)
         searched_notes.clear()
         console_resume()
     # ____КОМАНДА 3______Редактирование заметки
@@ -33,19 +32,17 @@ while True:
     # ____КОМАНДА 5______Найти заметку по ключу
     elif command_menu == '5':
         searched_notes = []
-        for iteration, note in enumerate(search_notes_by_keyword('nt_mngr_dtbs.db')):
-            note_id = iteration + 1
-            searched_notes.append(note_id)
-            notes_display(note, note_id)
+        for iteration, note in enumerate(search_notes_by_keyword('nt_mngr_dtbs.db'), start = 1):
+            searched_notes.append(iteration)
+            notes_display(note, iteration)
         searched_notes.clear()
         console_resume()
     # ____КОМАНДА 6______Найти заметку по статусу
     elif command_menu == '6':
         searched_notes = []
-        for iteration, note in enumerate(filter_notes_by_status('nt_mngr_dtbs.db', status='')):
-            note_id = iteration + 1
-            searched_notes.append(note_id)
-            notes_display(note, note_id)
+        for iteration, note in enumerate(filter_notes_by_status('nt_mngr_dtbs.db', status=''), start = 1):
+            searched_notes.append(iteration)
+            notes_display(note, iteration)
         searched_notes.clear()
         console_resume()
     # ____КОМАНДА 7______Завершение программы
@@ -53,7 +50,7 @@ while True:
         break
     else:
         print(MESSAGE_COMMAND_ERR)  # >> такой команды не существует
-        continue
+
 
 
 

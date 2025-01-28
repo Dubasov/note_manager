@@ -1,6 +1,7 @@
 from datetime import datetime  # Работа с датами
 from STAGE_5.config import *
 
+
 # ФУНКЦИЯ ОТРИСОВКИ ЗАМЕТОК ПРИ ПОИСКЕ
 def notes_display(note, note_id):
     print(MESSAGE_DISP_SEP)  # >> ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯
@@ -9,23 +10,34 @@ def notes_display(note, note_id):
         if isinstance(value, list):  # Если type = list
             print('▶ Тема: '.ljust(22, ' '), '; '.join(value))  # список в строку
         else:
-            if key != 'ID':
-                print(f'▶ {key}:'.ljust(22, ' '), f'{value}')
+            if key == 'ID':
+                pass
+            elif key == 'username':
+                print(f'▶ Имя пользователя: '.ljust(22, ' '), f'{value}')
+            elif key == 'content':
+                print(f'▶ Описание: '.ljust(22, ' '), f'{value}')
+            elif key == 'status':
+                print(f'▶ Статус: '.ljust(22, ' '), f'{value}')
+            elif key == 'created_date':
+                print(f'▶ Создана: '.ljust(22, ' '), f'{value}')
+            elif key == 'issue_date':
+                print(f'▶ Дата завершения: '.ljust(22, ' '), f'{value}')
+
 
     # ДЕДЛАЙН
     temp_created_date = datetime.now()
-    temp_issue_date = datetime.strptime(note['Дата завершения'], "%d-%m-%Y")
+    temp_issue_date = datetime.strptime(note['issue_date'], "%d-%m-%Y")
 
     if temp_created_date < temp_issue_date:  # Блок сравнения дат
-        if note.get('Статус') != 'Выполнена':
+        if note.get('status') != 'Выполнена':
             deadline_var = temp_issue_date - temp_created_date
             print(MESSAGE_DISP_BEF.format(deadline_var.days))  # >> Осталось {} дней
     elif temp_created_date > temp_issue_date:
-        if note.get('Статус') != 'Выполнена':
+        if note.get('status') != 'Выполнена':
             deadline_var = temp_created_date - temp_issue_date
             print(MESSAGE_DISP_AFT.format(deadline_var.days))  # >> Просрочено на {} дней
     else:
-        if note.get('Статус') != 'Выполнена':
+        if note.get('status') != 'Выполнена':
             print(MESSAGE_DISP_TOD)  # >> Истекает сегодня
 
 

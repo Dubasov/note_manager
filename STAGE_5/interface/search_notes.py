@@ -38,20 +38,20 @@ def search_notes(notes_lst):
     if search_keyword and search_status:  # Если активирован поиск по статусу и ключевому слову
         print(MESSAGE_DISP_RES)  # >> найденные результаты
         for iteration, note in enumerate(notes_lst):  # Перебираем список заметок
-            themes_str = ', '.join(note.get('Темы'))  # Меняем данные ключа из списка в строку: (..keyword in str..)
+            themes_str = ', '.join(note.get('title'))  # Меняем данные ключа из списка в строку: (..keyword in str..)
 
             # Если поисковая фраза и статус в соответствующих ключах
-            if search_keyword in note.get('Имя пользователя').lower().replace(', ', ' ').split() and search_status == note.get('Статус').lower():
+            if search_keyword in note.get('username').lower().replace(', ', ' ').split() and search_status == note.get('status').lower():
                 note_id = iteration + 1
                 searched_notes.append(note_id)
                 notes_display(note, note_id)  # отправляем note в ф-ию display
                 find = True  # маркер результата поиска ==> True
-            elif search_keyword in note.get('Описание').lower().replace(', ', ' ').split() and search_status == note.get('Статус').lower():
+            elif search_keyword in note.get('content').lower().replace(', ', ' ').split() and search_status == note.get('status').lower():
                 note_id = iteration + 1
                 searched_notes.append(note_id)
                 notes_display(note, note_id)
                 find = True
-            elif search_keyword in themes_str.lower().replace(', ', ' ').split() and search_status == note.get('Статус').lower():
+            elif search_keyword in themes_str.lower().replace(', ', ' ').split() and search_status == note.get('status').lower():
                 note_id = iteration + 1
                 searched_notes.append(note_id)
                 notes_display(note, note_id)
@@ -61,13 +61,13 @@ def search_notes(notes_lst):
     elif search_keyword:
         print(MESSAGE_DISP_RES)  # >> найденные результаты
         for iteration, note in enumerate(notes_lst):
-            themes_str = ', '.join(note.get('Темы'))
-            if search_keyword in note.get('Имя пользователя').lower().replace(', ', ' ').split():
+            themes_str = ', '.join(note.get('title'))
+            if search_keyword in note.get('username').lower().replace(', ', ' ').split():
                 note_id = iteration + 1
                 searched_notes.append(note_id)
                 notes_display(note, note_id)
                 find = True
-            elif search_keyword in note.get('Описание').lower().replace(', ', ' ').split():
+            elif search_keyword in note.get('content').lower().replace(', ', ' ').split():
                 note_id = iteration + 1
                 searched_notes.append(note_id)
                 notes_display(note, note_id)
@@ -81,7 +81,7 @@ def search_notes(notes_lst):
     elif search_status:
         print(MESSAGE_DISP_RES)  # >> найденные результаты
         for iteration, note in enumerate(notes_lst):
-            if search_status == note.get('Статус').lower():
+            if search_status == note.get('status').lower():
                 note_id = iteration + 1
                 searched_notes.append(note_id)
                 notes_display(note, note_id)
@@ -93,19 +93,19 @@ def search_notes(notes_lst):
 
 if '__main__' == __name__:
     # Список словарей с предустановленными заметками
-    notes_lst = [{'Имя пользователя': 'Влад',
-                  'Темы': ['Тестовый заголовок 1 в заметке Влада', 'Тестовый заголовок 2 в заметке Влада'],
-                  'Описание': 'Тестовое описание-1 в заметке влада',
-                  'Статус': 'Активна',
-                  'Создана': '15-12-2024',
-                  'Дата завершения': '15-12-2024'
+    notes_lst = [{'username': 'Влад',
+                  'title': ['Тестовый заголовок 1 в заметке Влада', 'Тестовый заголовок 2 в заметке Влада'],
+                  'content': 'Тестовое описание-1 в заметке влада',
+                  'status': 'Отложена',
+                  'created_date': '15-12-2024',
+                  'issue_date': '15-12-2024'
                   },
-                 {'Имя пользователя': 'Елена',
-                  'Темы': ['Тестовый заголовок 1 в заметке Елены'],
-                  'Описание': 'Тестовое описание-2 в заметке Елены',
-                  'Статус': 'Выполнена',
-                  'Создана': '15-12-2024',
-                  'Дата завершения': '10-01-2025'
+                 {'username': 'Елена',
+                  'title': ['Тестовый заголовок 1 в заметке Елены'],
+                  'content': 'Тестовое описание-2 в заметке Елены',
+                  'status': 'Выполнена',
+                  'created_date': '15-12-2024',
+                  'issue_date': '10-01-2025'
                   }
                  ]
 

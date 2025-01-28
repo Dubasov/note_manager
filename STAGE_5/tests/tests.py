@@ -10,27 +10,27 @@ class TestNoteManager(unittest.TestCase):
         self.assertEqual(notes, notes_lst)
 
     def test_create_name(self):
-        add_note_dict1 = {   "Имя пользователя": '1',
-                            "Темы": [],
-                            "Описание": '',
-                            "Статус": '',
-                            "Создана": '',
-                            "Дата завершения": ''}
-        add_note_dict = {"Имя пользователя": '',
-                          "Темы": [],
-                          "Описание": '',
-                          "Статус": '',
-                          "Создана": '',
-                          "Дата завершения": ''}
+        add_note_dict1 = {   "username": '1',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
+        add_note_dict = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
         self.assertEqual(create_name(add_note_dict), add_note_dict1)
 
     def test_create_tittles(self):
-        add_note_dict1 = {   "Имя пользователя": '',
-                            "Темы": ['1'],
-                            "Описание": '',
-                            "Статус": '',
-                            "Создана": '',
-                            "Дата завершения": ''}
+        add_note_dict1 = {   "username": '',
+                            "title": ['1'],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
         add_note_dict = {"Имя пользователя": '',
                           "Темы": [],
                           "Описание": '',
@@ -40,84 +40,84 @@ class TestNoteManager(unittest.TestCase):
         self.assertEqual(create_tittles(add_note_dict), add_note_dict1)
 
     def test_create_description(self):
-        add_note_dict1 = {   "Имя пользователя": '',
-                            "Темы": [],
-                            "Описание": '1',
-                            "Статус": '',
-                            "Создана": '',
-                            "Дата завершения": ''}
-        add_note_dict = {"Имя пользователя": '',
-                          "Темы": [],
-                          "Описание": '',
-                          "Статус": '',
-                          "Создана": '',
-                          "Дата завершения": ''}
+        add_note_dict1 = {   "username": '1',
+                            "title": [],
+                            "content": '1',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
+        add_note_dict = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
         self.assertEqual(create_description(add_note_dict), add_note_dict1)
 
     def test_create_status(self):
-        add_note_dict1 = {   "Имя пользователя": '',
-                            "Темы": [],
-                            "Описание": '',
-                            "Статус": 'Активна',
-                            "Создана": '',
-                            "Дата завершения": ''}
-        add_note_dict = {"Имя пользователя": '',
-                          "Темы": [],
-                          "Описание": '',
-                          "Статус": '',
-                          "Создана": '',
-                          "Дата завершения": ''}
+        add_note_dict1 = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": 'Активна',
+                            "created_date": '',
+                            "issue_date": ''}
+        add_note_dict = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
         self.assertEqual(create_status(add_note_dict), add_note_dict1)
 
     def test_create_issue_date(self):
-        add_note_dict1 = {   "Имя пользователя": '',
-                            "Темы": [],
-                            "Описание": '',
-                            "Статус": '',
-                            "Создана": '',
-                            "Дата завершения": '12-12-2024'}
-        add_note_dict = {"Имя пользователя": '',
-                          "Темы": [],
-                          "Описание": '',
-                          "Статус": '',
-                          "Создана": '',
-                          "Дата завершения": ''}
+        add_note_dict1 = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": '12-12-2024'}
+        add_note_dict = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
         self.assertEqual(create_issue_date(add_note_dict), add_note_dict1)
 
     def test_create_now_date(self):
-        add_note_dict1 = {   "Имя пользователя": '',
-                            "Темы": [],
-                            "Описание": '',
-                            "Статус": '',
-                            "Создана": datetime.strftime(datetime.now(), "%d-%m-%Y"),
-                            "Дата завершения": ''}
-        add_note_dict = {"Имя пользователя": '',
-                          "Темы": [],
-                          "Описание": '',
-                          "Статус": '',
-                          "Создана": '',
-                          "Дата завершения": ''}
+        add_note_dict1 = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": datetime.strftime(datetime.now(), "%d-%m-%Y"),
+                            "issue_date": ''}
+        add_note_dict = {   "username": '',
+                            "title": [],
+                            "content": '',
+                            "status": '',
+                            "created_date": '',
+                            "issue_date": ''}
         self.assertEqual(create_now_date(add_note_dict), add_note_dict1)
 
     def test_delete_note(self):
         notes_lst1 = []
-        notes_lst = [{"Имя пользователя": 'Влад',
-                          "Темы": ['Влад'],
-                          "Описание": 'Влад',
-                          "Статус": 'Активна',
-                          "Создана": '12-12-2024',
-                          "Дата завершения": '12-12-2025'}]
+        notes_lst = [{"username": 'Влад',
+                          "title": ['Влад'],
+                          "content": 'Влад',
+                          "status": 'Активна',
+                          "created_date": '12-12-2024',
+                          "issue_date": '12-12-2025'}]
         self.assertEqual(delete_notes(notes_lst), notes_lst1)
 
 
     def test_search_notes(self):
         searched_notes = [1]
-        notes_lst = [{"Имя пользователя": 'Влад',
-                          "Темы": ['Влад'],
-                          "Описание": 'Влад',
-                          "Статус": 'Активна',
-                          "Создана": '12-12-2024',
-                          "Дата завершения": '12-12-2025'}]
+        notes_lst = [{"username": 'Влад',
+                          "title": ['Влад'],
+                          "content": 'Влад',
+                          "status": 'Активна',
+                          "created_date": '12-12-2024',
+                          "issue_date": '12-12-2025'}]
         self.assertEqual(search_notes(notes_lst), searched_notes)
 
 

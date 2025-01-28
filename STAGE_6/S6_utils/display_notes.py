@@ -1,6 +1,8 @@
 from datetime import datetime  # Работа с датами
 from STAGE_6.config import *
 
+
+
 # ФУНКЦИЯ ОТРИСОВКИ ЗАМЕТОК ПРИ ПОИСКЕ
 def notes_display(note, note_id):
     print(MESSAGE_DISP_SEP)  # >> ⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯

@@ -19,14 +19,13 @@ def save_note_to_db(db_path):
             break
         else:  # False если пробелы / пустой ввод
             print(MESSAGE_FIELD_EMPTY)
-            continue
+
     # ДОБАВЛЕНИЕ ТЕМ_______________________________________________________________
     print(MESSAGE_CR_TIT)
 
-    title_ticker = 1  # счётчик тем
 
     while True:
-        title = input(f'{MESSAGE_TIT_INP} {title_ticker}: ')  # пользовательский ввод
+        title = input(f'{MESSAGE_TIT_INP} {len(note_dct['title']) + 1}: ')  # пользовательский ввод
 
         if validate_input(title):  # только пробелы / пустой ввод?
             if title.lower() in (item.lower() for item in note_dct['title']):  # Нижний регистр и поиск совпадений
@@ -34,7 +33,6 @@ def save_note_to_db(db_path):
                 continue
             else:
                 note_dct['title'].append(title)
-                title_ticker = title_ticker + 1
         elif title.isspace():  # если только пробелы
             print(MESSAGE_FIELD_EMPTY)
             continue
