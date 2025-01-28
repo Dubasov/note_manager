@@ -1,4 +1,28 @@
 
+## Завершение Этапа 6
+### STAGE_6 /
+- |── [**database/**](https://github.com/Dubasov/note_manager/tree/master/STAGE_6/database)
+- ||────── [__init__.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/database/__init__.py)
+- ||────── [note_operations.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/database/note_operations.py)
+- ||────── [setup_database.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/database/setup_database.py)
+- |── [**tests/**](https://github.com/Dubasov/note_manager/tree/master/STAGE_6/tests)
+- ||────── [test_note_database.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/tests/test_note_database.py)
+- |── [**S6_utils/**](https://github.com/Dubasov/note_manager/tree/master/STAGE_6/S6_utils)
+- ||────── [__init__.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/S6_utils/__init__.py)
+- ||────── [console_resume.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/S6_utils/console_resume.py)
+- ||────── [display_notes.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/S6_utils/display_notes.py)
+- ||────── [validate_date.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/S6_utils/validate_date.py)
+- ||────── [validate_input.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/S6_utils/validate_input.py)
+- ||────── [validate_status.py](https://github.com/Dubasov/note_manager/blob/master/STAGE_6/S6_utils/validate_status.py)
+- |── [config.py](https://github.com/Dubasov/note_manager/tree/master/STAGE_6/config.py)
+- |── [**main.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_6/main.py)
+
+### Описание
+Этап разработки включает создание функций для работы с БД sqlite3
+- **database/** (содержит функции для создания, редактирования, удаления, чтения, поиска и фильтрации заметок в БД sqlite3)
+- **tests/**	(содержит функции тестирования)
+- **S6_utils/**	(содержит вспомогательные функции для валидации и отображения данных)
+--- 
 ## Завершение Этапа 5
 ### STAGE_5 /
 - |── [**data/**](https://github.com/Dubasov/note_manager/tree/master/STAGE_5/data)
