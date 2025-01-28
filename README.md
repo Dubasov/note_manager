@@ -1,4 +1,21 @@
 
+## Завершение Этапа 7
+### STAGE_7 /
+- |── [**color_output.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_7/color_output.py)
+- |── [**config.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_7/config.py)
+- |── [**console_menu.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_7/console_menu.py)
+- |── [**error_handling_ui.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_7/error_handling_ui.py)
+- |── [**filters_menu.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_7/filters_menu.py)
+- |── [**pagination.py**](https://github.com/Dubasov/note_manager/tree/master/STAGE_7/pagination.py)
+### Описание
+Этап разработки включает создание функций меню  программы, цветного вывода статусов, пагинации и управления ошибками
+- **color_output.py** (содержит функции для цветного вывода в консоли)
+- **console_menu.py**	(содержит функцию консольного меню)
+- **error_handling_ui.py**	(функция для управления ошибками)
+- **filters_menu.py**	(функция для фильтрации заметок по ключевому слову, статусу или дате)
+- **pagination.py**	(постраничное отображение заметок)
+
+--- 
 ## Завершение Этапа 6
 ### STAGE_6 /
 - |── [**database/**](https://github.com/Dubasov/note_manager/tree/master/STAGE_6/database)
